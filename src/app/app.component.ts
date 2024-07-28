@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'To-Do_App';
+  task = signal([
+    'Instalar Angular CLI',
+    'Crear Proyecto',
+    'Crear Componente',
+    'Crear Servicio'
+  ])
 }
