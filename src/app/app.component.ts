@@ -15,30 +15,20 @@ import { Task } from './models/task.model';
 export class AppComponent {
   tasks = signal<Task[]>([
     {
-      id: Date.now(),
+      id: 1,
       title: 'Instalar Angular CLI',
       completed: false
     },
     {
-      id: Date.now(),
+      id: 2,
       title: 'Crear Proyecto',
-      completed: false
-    },
-    {
-      id: Date.now(),
-      title: 'Crear Componente',
-      completed: false
-    },
-    {
-      id: Date.now(),
-      title: 'Crear Servicio',
       completed: false
     },
   ]);
 
   addTask(title: string) {
     const newTask = {
-      id: Date.now(),
+      id: this.tasks().length + 1,
       title,
       completed: false
     };
@@ -57,4 +47,18 @@ export class AppComponent {
       tasks.filter((task, position) => position !== index)
     ));
   };
+
+  updateTask(index: number) {
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        };
+        return task;
+      });
+    });
+  }; 
 }
