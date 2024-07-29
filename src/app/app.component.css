@@ -257,6 +257,7 @@
 }
 
 .footer {
+  margin-bottom: 1rem;
   padding: 1rem 1.5rem;
   height: 20px;
   text-align: center;
@@ -277,7 +278,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  position: absolute;
   right: 0;
   left: 0;
 }
